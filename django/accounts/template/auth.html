@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/tailwind.css' %}" />
+    {% block extraheader %}{% endblock %}
+    <title>STOCK_ANALYSIS</title>
+  </head>
+  <body
+    class="h-screen w-screen flex justify-center items-center bg-blue-50 text-sm text-gray-800"
+  >
+    <div class="bg-white w-96 mb-32 flex flex-col rounded px-8 py-8 shadow-md">
+      <div class="inline-flex justify-center mb-8 text-6xl text-green-500 font-bold">OrcUp</div>
+      {% if messages %}
+        <ul>
+          {% for message in messages %}
+          <li class="text-red-500 list-none">{{ message }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      <form method="post" autocomplete="off">
+        {% csrf_token %}
+        <div class="mb-4">
+          <label class="mb-2 block text-sm font-bold" for="username">
+            ユーザーID
+          </label>
+          <input
+            class="w-full appearance-none rounded border py-2 px-3 shadow"
+            name="username"
+            id="username"
+            type="text"
+          />
+          <div class="text-red-500 mt-2">{{ form.username.errors }}</div>
+        </div>
+        <div class="mb-6">
+          <label class="mb-2 block text-sm font-bold" for="password">
+            パスワード
+          </label>
+          <input
+            class="w-full appearance-none rounded border py-2 px-3 shadow"
+            name="password"
+            id="password"
+            type="password"
+          />
+          <div class="text-red-500 mt-2">{{ form.password.errors }}</div>
+        </div>
+        <div class="flex items-center justify-between mt-16">
+          <input
+            type="submit"
+            value="ログイン"
+            class="btn btn-primary btn-small bg-green-500 text-white hover:bg-green-600"
+          />
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
