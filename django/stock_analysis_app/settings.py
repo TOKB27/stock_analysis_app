@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'accounts',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -142,18 +142,18 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # CustomUserモデルの設定
-# AUTH_USER_MODEL = 'accounts.CustomUser'
+AUTH_USER_MODEL = 'accounts.CustomUser'
 
 # ブラウザが閉じられたときにセッション終了
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 # ログイン前後の遷移先
-# LOGIN_URL = '/accounts/login/'
-# LOGIN_REDIRECT_URL = '/'
-# LOGOUT_REDIRECT_URL = '/accounts/login/'
+LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/accounts/login/'
 
 # ログインしていなくても表示可能なページ
-# PUBLIC_PATHS = [
-#     '/accounts/login/',
-#     '/auth/*',
-# ]
+PUBLIC_PATHS = [
+    '/accounts/login/',
+    '/auth/*',
+]
