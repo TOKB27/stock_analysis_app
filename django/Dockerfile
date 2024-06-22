@@ -6,6 +6,9 @@ RUN yum -y update && \
     yum -y install epel-release && \
     yum -y install git gcc make zlib-devel bzip2 bzip2-devel readline-devel sqlite sqlite-devel openssl-devel tk-devel libffi-devel patch mariadb-devel python3-devel pkgconfig
 
+# MySQLクライアントのインストール
+RUN yum -y install mysql
+
 # Node.jsとnpmのインストール
 RUN curl -sL https://rpm.nodesource.com/setup_16.x | bash - && \
     yum -y install nodejs
