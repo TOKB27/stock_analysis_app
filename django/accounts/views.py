@@ -18,7 +18,7 @@ def auth_view(request):
         if user is not None:
             request.session['pk'] = user.pk
             login(request, user)
-            return redirect('top')
+            return redirect('dashboard')
         messages.error(request, "ユーザIDまたはパスワードが正しくありません。")
     
     # getパラメータで受け取ったnextをtemplateへ渡す
